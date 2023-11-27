@@ -9,8 +9,6 @@ networks:
 services:
   cass-alpha1:
     image: digitalis-cassandra:4.0.11
-    build:
-      context: ./multidc/build
     container_name: cass-alpha1
     hostname: cass-alpha1
     mem_limit: 1g
