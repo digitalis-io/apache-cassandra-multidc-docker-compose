@@ -115,7 +115,12 @@ COPY files/waitforcassandratostart.sh /usr/local/bin/
 COPY files/checkcassandrastable.sh /usr/local/bin/
 COPY files/repairtarget.sh /usr/local/bin/
 
-COPY files/cqlshrc /
+
+RUN set -eux; \
+	mkdir -p /opt/cassandra/.cassandra/; \
+	chown -R cassandra:cassandra /opt/cassandra/.cassandra/
+	
+COPY files/cqlshrc /opt/cassandra/.cassandra/
 
 RUN set -eux; \
     chmod 777 /usr/local/bin/isrepairrunning.sh; \
