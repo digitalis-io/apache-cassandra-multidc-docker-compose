@@ -14,9 +14,9 @@ eexit() {
 }
 
 logit "Setting system keyspaces to be multi DC"
-cqlsh --cqlshrc=/cqlshrc -e "ALTER KEYSPACE system_auth WITH replication= {'class' : 'NetworkTopologyStrategy', 'alpha' : 3, 'omega' : 3};"
-cqlsh --cqlshrc=/cqlshrc -e "ALTER KEYSPACE system_traces WITH replication= {'class' : 'NetworkTopologyStrategy', 'alpha' : 1, 'omega' : 1} AND durable_writes = false;"
-cqlsh --cqlshrc=/cqlshrc -e "ALTER KEYSPACE system_distributed WITH replication= {'class' : 'NetworkTopologyStrategy', 'alpha' : 3, 'omega' : 3};"
-cqlsh --cqlshrc=/cqlshrc -f /cql/test.cql
+cqlsh -e "ALTER KEYSPACE system_auth WITH replication= {'class' : 'NetworkTopologyStrategy', 'alpha' : 3, 'omega' : 3};"
+cqlsh -e "ALTER KEYSPACE system_traces WITH replication= {'class' : 'NetworkTopologyStrategy', 'alpha' : 1, 'omega' : 1} AND durable_writes = false;"
+cqlsh -e "ALTER KEYSPACE system_distributed WITH replication= {'class' : 'NetworkTopologyStrategy', 'alpha' : 3, 'omega' : 3};"
+cqlsh -f /cql/test.cql
 
 logit "Cassandra Data Setup"

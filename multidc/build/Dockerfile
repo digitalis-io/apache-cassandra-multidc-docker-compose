@@ -156,7 +156,7 @@ RUN set -eux; \
 
 USER cassandra
 
-ENV LOCAL_JMX yes
+ENV LOCAL_JMX no
 
 # 7000: intra-node communication
 # 7001: TLS intra-node communication
