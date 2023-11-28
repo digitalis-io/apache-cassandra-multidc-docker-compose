@@ -5,11 +5,4 @@ password = cassandra
 [connection]
 hostname = 10.7.1.11
 port = 9042
-; ssl = true
-factory = cqlshlib.ssl.ssl_transport_factory
-
-[ssl]
-certfile = /opt/cassandra/ssl/digitalis-localdev/ca.crt
-validate = false
-; usercert = ~/.cassandra/client.crt
-; userkey = ~/.cassandra/client.key
+ssl = false
