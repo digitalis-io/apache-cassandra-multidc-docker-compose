@@ -24,6 +24,7 @@ RUN set -eux; \
 		libjemalloc-dev \
 		procps \
 		python \
+		python-pip \
 		iproute2 \
 		numactl \
 		webhook \
@@ -32,6 +33,11 @@ RUN set -eux; \
 		jq \
 	; \
 	rm -rf /var/lib/apt/lists/*
+
+RUN set -eux; \
+	pip install --upgrade setuptools; \
+	pip install cassandra-driver; \
+	pip install six
 
 # grab gosu for easy step-down from root
 # https://github.com/tianon/gosu/releases
